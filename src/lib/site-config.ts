@@ -21,7 +21,7 @@ export const siteConfig = {
   links: {
     instagram: "https://www.instagram.com/lumosysweb",
     facebook: "https://www.facebook.com/lumosysweb",
-    linkedin: "https://www.linkedin.com/company/lumosysweb",
+    linkedin: "https://www.linkedin.com/in/lumosysweb",
     x: "https://www.x.com/lumosysweb",
   },
 } as const;
