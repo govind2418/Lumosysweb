@@ -10,7 +10,6 @@
     "build": "next build",
     "start": "next start",
     "server": "node server.js",
-    "postinstall": "next build",
     "lint": "eslint"
   },
   "dependencies": {
