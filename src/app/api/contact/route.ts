@@ -5,8 +5,6 @@ import { ZodError } from "zod";
 import { contactSchema } from "@/lib/contact-schema";
 import { siteConfig } from "@/lib/site-config";
 
-const resend = new Resend(process.env.RESEND_API_KEY);
-
 export async function POST(request: Request) {
   let body: unknown;
 
@@ -21,6 +19,16 @@ export async function POST(request: Request) {
 
   try {
     const data = contactSchema.parse(body);
+
+    if (!process.env.RESEND_API_KEY) {
+      console.error("RESEND_API_KEY is not configured.");
+      return NextResponse.json(
+        { error: "Something went wrong. Please try again." },
+        { status: 500 },
+      );
+    }
+
+    const resend = new Resend(process.env.RESEND_API_KEY);
 
     const lines = [
       `Name: ${data.name}`,
