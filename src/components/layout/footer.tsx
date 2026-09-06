@@ -150,7 +150,7 @@ export function Footer() {
         <div className="flex flex-col items-center justify-between gap-5 border-t border-white/5 pt-8 md:flex-row">
           <p className="text-sm text-muted-foreground">
             © {new Date().getFullYear()} Lumosys Web. All rights reserved. |
-            www.lumosysweb.com
+            lumosysweb.com
           </p>
           <div className="flex items-center gap-3">
             {socials.map((social) => (

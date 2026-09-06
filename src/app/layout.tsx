@@ -9,6 +9,7 @@ import { CustomCursor } from "@/components/effects/custom-cursor";
 import { WhatsAppButton } from "@/components/effects/whatsapp-button";
 import { NetworkGlobeCanvas } from "@/components/effects/network-globe-canvas";
 import { siteConfig } from "@/lib/site-config";
+import { faqs } from "@/data/faq";
 
 const spaceGrotesk = Space_Grotesk({
   variable: "--font-sans",
@@ -17,9 +18,10 @@ const spaceGrotesk = Space_Grotesk({
   display: "swap",
 });
 
-const title = "Lumosys Web | Web Design, SEO & Digital Marketing Agency in India";
+const title =
+  "Lumosys Web | App Development, Web App & Website Development Agency";
 const description =
-  "Lumosys Web is India's trusted web design, SEO & digital marketing agency — also serving UAE and Canada. Premium websites starting ₹30,000, plus software solutions and graphic design. Contact: lumosysweb@gmail.com";
+  "Lumosys Web builds mobile apps, web apps, and all types of custom app development — plus web design, SEO & digital marketing. Trusted in India, UAE and Canada. Contact: lumosysweb@gmail.com";
 
 export const metadata: Metadata = {
   metadataBase: new URL(siteConfig.url),
@@ -28,6 +30,24 @@ export const metadata: Metadata = {
   keywords: [
     "Lumosys Web",
     "lumosysweb",
+    "app development company",
+    "app development agency",
+    "mobile app development company",
+    "mobile app development India",
+    "Android app development",
+    "iOS app development",
+    "web app development company",
+    "web application development",
+    "custom app development",
+    "cross-platform app development",
+    "Progressive Web App development",
+    "PWA development company",
+    "SaaS app development",
+    "hire app developers",
+    "on-demand app development",
+    "app development UAE",
+    "app development Dubai",
+    "app development Canada",
     "web design company India",
     "web development company India",
     "best website design company in India",
@@ -80,7 +100,7 @@ export const metadata: Metadata = {
     siteName: siteConfig.name,
     title,
     description:
-      "India's trusted web design, SEO & digital marketing agency — also serving UAE and Canada. Premium websites starting ₹30,000, plus software solutions and graphic design.",
+      "All types of app development — mobile apps, web apps, and cross-platform apps — plus web design, SEO & digital marketing. Trusted in India, UAE and Canada.",
     images: [
       {
         url: siteConfig.ogImage,
@@ -96,7 +116,7 @@ export const metadata: Metadata = {
     creator: "@lumosysweb",
     title,
     description:
-      "India's growth partner for web design, SEO & digital marketing — plus UAE and Canada. Starting ₹30,000 | lumosysweb.com",
+      "App development, web app development & website development — India's growth partner, also serving UAE and Canada. lumosysweb.com",
     images: [
       {
         url: siteConfig.ogImage,
@@ -122,7 +142,7 @@ const jsonLdBusiness = {
   logo: `${siteConfig.url}/favicon.png`,
   image: `${siteConfig.url}/favicon.png`,
   description:
-    "Lumosys Web is a global digital agency offering web design & development, SEO, digital marketing, software solutions and graphic design. Started in India, serving UAE and Canada.",
+    "Lumosys Web is a global digital agency offering app development (mobile, web, and cross-platform apps), web design & development, SEO, digital marketing, software solutions and graphic design. Started in India, serving UAE and Canada.",
   foundingDate: "2020",
   founder: {
     "@type": "Person",
@@ -155,6 +175,10 @@ const jsonLdBusiness = {
   sameAs: Object.values(siteConfig.links),
   areaServed: ["AE", "IN", "CA"],
   serviceType: [
+    "App Development",
+    "Mobile App Development",
+    "Web App Development",
+    "Cross-Platform App Development",
     "Web Design",
     "Web Development",
     "Search Engine Optimization",
@@ -171,6 +195,19 @@ const jsonLdWebsite = {
   "@type": "WebSite",
   name: siteConfig.name,
   url: siteConfig.url,
+};
+
+const jsonLdFaq = {
+  "@context": "https://schema.org",
+  "@type": "FAQPage",
+  mainEntity: faqs.map((faq) => ({
+    "@type": "Question",
+    name: faq.question,
+    acceptedAnswer: {
+      "@type": "Answer",
+      text: faq.answer,
+    },
+  })),
 };
 
 export default function RootLayout({
@@ -192,6 +229,10 @@ export default function RootLayout({
         <script
           type="application/ld+json"
           dangerouslySetInnerHTML={{ __html: JSON.stringify(jsonLdWebsite) }}
+        />
+        <script
+          type="application/ld+json"
+          dangerouslySetInnerHTML={{ __html: JSON.stringify(jsonLdFaq) }}
         />
       </head>
       <body className="flex min-h-full flex-col selection:bg-primary/30 selection:text-white">

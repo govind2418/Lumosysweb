@@ -6,7 +6,7 @@ import { MapPin, Globe } from "lucide-react";
 
 import { globalPresence } from "@/lib/site-config";
 
-const businessModel = ["Website", "Maintenance", "SEO", "Ads", "Software", "Long-Term Partner"];
+const businessModel = ["App Development", "Website", "Maintenance", "SEO", "Ads", "Software", "Long-Term Partner"];
 
 export function About() {
   return (

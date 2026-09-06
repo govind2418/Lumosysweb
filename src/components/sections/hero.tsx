@@ -52,9 +52,9 @@ export function Hero() {
           transition={{ duration: 0.8, delay: 0.6 }}
           className="mb-12 max-w-2xl text-lg text-muted-foreground md:text-xl"
         >
-          Web Design, SEO, Digital Marketing, and Software Solutions —
-          headquartered in Dubai with a global reach across UAE, India, and
-          Canada.
+          App Development, Web Design, SEO, Digital Marketing, and Software
+          Solutions — headquartered in Dubai with a global reach across UAE,
+          India, and Canada.
         </motion.p>
 
         <motion.div

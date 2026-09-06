@@ -9,7 +9,7 @@ import { services } from "@/data/services";
 export const metadata: Metadata = {
   title: "Services",
   description:
-    "Web development, product design, brand identity, mobile apps, SEO, and launch support from Lumosys Web.",
+    "App development (mobile, web, and cross-platform apps), web development, product design, brand identity, SEO, and launch support from Lumosys Web.",
 };
 
 export default function ServicesPage() {

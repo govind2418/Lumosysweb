@@ -1,5 +1,5 @@
 import type { LucideIcon } from "lucide-react";
-import { Code2, Globe2, PenTool, Search, Server, TrendingUp } from "lucide-react";
+import { Code2, Globe2, PenTool, Search, Server, Smartphone, TrendingUp } from "lucide-react";
 
 export interface Service {
   icon: LucideIcon;
@@ -18,6 +18,17 @@ const webDevItems = [
   "E-Commerce Stores",
   "WordPress Development",
   "Custom Websites",
+];
+
+const appDevItems = [
+  "Mobile App Development",
+  "Android App Development",
+  "iOS App Development",
+  "Web App Development",
+  "Cross-Platform Apps",
+  "Progressive Web Apps (PWA)",
+  "App UI/UX Design",
+  "App Maintenance & Support",
 ];
 
 const seoItems = [
@@ -75,6 +86,15 @@ export const services: Service[] = [
     description: "Pixel-perfect websites that convert visitors into customers.",
     items: webDevItems,
     features: webDevItems,
+  },
+  {
+    icon: Smartphone,
+    slug: "app-development",
+    title: "App Development",
+    description:
+      "All types of app development — mobile, web, and cross-platform apps built to scale.",
+    items: appDevItems,
+    features: appDevItems,
   },
   {
     icon: Search,

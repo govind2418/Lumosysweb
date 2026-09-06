@@ -7,7 +7,17 @@ export const faqs: FaqItem[] = [
   {
     question: "What services does Lumosys Web offer?",
     answer:
-      "Lumosys Web offers a full suite of digital services: Web Design & Development (business, corporate, e-commerce, WordPress, custom websites), Search Engine Optimization (technical, on-page, off-page, local SEO), Digital Marketing (Google Ads, Meta Ads, social media, lead generation), Software Solutions (CRM, ERP, automation, custom dashboards, AI integration), Graphic Design (logos, brand identity, brochures, social media creatives), and Domain & Hosting (premium hosting, business email, SSL, migration, maintenance).",
+      "Lumosys Web offers a full suite of digital services: App Development (mobile apps, web apps, cross-platform apps, and Progressive Web Apps), Web Design & Development (business, corporate, e-commerce, WordPress, custom websites), Search Engine Optimization (technical, on-page, off-page, local SEO), Digital Marketing (Google Ads, Meta Ads, social media, lead generation), Software Solutions (CRM, ERP, automation, custom dashboards, AI integration), Graphic Design (logos, brand identity, brochures, social media creatives), and Domain & Hosting (premium hosting, business email, SSL, migration, maintenance).",
+  },
+  {
+    question: "Do you build mobile apps and web apps?",
+    answer:
+      "Yes — app development is one of our core services. We build all types of apps: native Android and iOS apps, cross-platform apps, and web apps, including Progressive Web Apps (PWAs). Recent examples include Munimji App, a business and accounting app, along with its Shyam Sweets and PowerBreak vertical editions.",
+  },
+  {
+    question: "What's the difference between a website and a web app?",
+    answer:
+      "A website mainly shows information — pages, content, and a way to contact you. A web app lets users log in, manage data, and perform actions inside the browser, like a dashboard, booking system, or business tool. Lumosys Web builds both: marketing websites for visibility, and web apps for functionality — and can combine the two in a single product.",
   },
   {
     question: "Where is Lumosys Web based, and do you work internationally?",

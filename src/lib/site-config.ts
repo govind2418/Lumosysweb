@@ -4,7 +4,7 @@ export const siteConfig = {
   tagline: "Your Digital Growth Partner",
   description:
     "Lumosys Web is India's trusted web design, SEO & digital marketing agency — also serving UAE and Canada. Premium websites starting ₹30,000, plus software solutions and graphic design.",
-  url: "https://www.lumosysweb.com",
+  url: "https://lumosysweb.com",
   ogImage: "/logo.png",
   email: "lumosysweb@gmail.com",
   founder: "Govind Sharma",
