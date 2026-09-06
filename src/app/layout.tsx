@@ -19,7 +19,7 @@ const spaceGrotesk = Space_Grotesk({
 
 const title = "Lumosys Web | Web Design, SEO & Digital Marketing Agency in India";
 const description =
-  "Lumosys Web is India's trusted web design, SEO & digital marketing agency — also serving UAE and Canada. Premium websites starting ₹30,000, plus software solutions and graphic design. Contact: sales@lumosysweb.com";
+  "Lumosys Web is India's trusted web design, SEO & digital marketing agency — also serving UAE and Canada. Premium websites starting ₹30,000, plus software solutions and graphic design. Contact: lumosysweb@gmail.com";
 
 export const metadata: Metadata = {
   metadataBase: new URL(siteConfig.url),

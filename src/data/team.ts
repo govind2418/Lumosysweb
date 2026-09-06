@@ -3,14 +3,16 @@ export interface TeamMember {
   role: string;
   bio: string;
   initials: string;
+  image?: string;
 }
 
 export const team: TeamMember[] = [
   {
-    name: "Elena Marsh",
+    name: "Govind Sharma",
     role: "Founder & CEO",
-    bio: "Started Lumosys after a decade leading engineering teams at two Series C startups.",
-    initials: "EM",
+    bio: "Visionary entrepreneur driving digital transformation for businesses across UAE, India, and Canada. Built Lumosys Web to bridge the gap between great ideas and powerful digital execution.",
+    initials: "GS",
+    image: "/team/govind-sharma.png",
   },
   {
     name: "Theo Anand",

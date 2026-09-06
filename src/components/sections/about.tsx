@@ -1,5 +1,6 @@
 "use client";
 
+import Image from "next/image";
 import { motion } from "framer-motion";
 import { MapPin, Globe } from "lucide-react";
 
@@ -77,8 +78,15 @@ export function About() {
               className="glass-card rounded-3xl p-8"
             >
               <div className="flex items-start gap-5">
-                <div className="flex h-14 w-14 shrink-0 items-center justify-center rounded-2xl bg-primary/20 text-2xl font-bold text-primary">
-                  GS
+                <div className="relative h-24 w-24 shrink-0 overflow-hidden rounded-2xl ring-1 ring-primary/30 sm:h-28 sm:w-28">
+                  <Image
+                    src="/team/govind-sharma.png"
+                    alt="Govind Sharma, Founder & CEO"
+                    fill
+                    sizes="112px"
+                    quality={95}
+                    className="object-cover object-top"
+                  />
                 </div>
                 <div>
                   <h3 className="mb-1 text-xl font-bold text-white">Govind Sharma</h3>

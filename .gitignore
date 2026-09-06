@@ -43,3 +43,8 @@ next-env.d.ts
 # claude code local settings
 .claude/settings.local.json
 .claude/scheduled_tasks.lock
+.claude/skills/
+
+# agent skill tooling (installed by vercel integration CLI, not app code)
+/.agents/
+/skills-lock.json

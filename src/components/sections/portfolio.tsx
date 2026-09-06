@@ -1,6 +1,7 @@
 "use client";
 
 import { useRef, useState } from "react";
+import Link from "next/link";
 import {
   AnimatePresence,
   motion,
@@ -8,7 +9,7 @@ import {
   useSpring,
   useTransform,
 } from "framer-motion";
-import { ArrowUpRight } from "lucide-react";
+import { ArrowUpRight, Lock } from "lucide-react";
 
 import { projectCategories, projects, type Project } from "@/data/projects";
 import { cn } from "@/lib/utils";
@@ -55,6 +56,84 @@ function ProjectCard({ project }: { project: Project }) {
     y.set(0);
   }
 
+  const card = (
+    <motion.div
+      ref={ref}
+      onMouseMove={handleMouseMove}
+      onMouseLeave={handleMouseLeave}
+      style={{ rotateX, rotateY, transformStyle: "preserve-3d" }}
+      className={cn(
+        "interactive group relative aspect-[4/3] overflow-hidden rounded-2xl border",
+        project.locked ? "border-dashed border-white/15" : "border-white/10",
+      )}
+    >
+      <div
+        className={cn(
+          "absolute inset-0 bg-gradient-to-br opacity-90 transition-transform duration-700 group-hover:scale-105",
+          project.gradient,
+        )}
+      />
+      <motion.div
+        className="pointer-events-none absolute inset-0 opacity-0 transition-opacity duration-300 group-hover:opacity-100"
+        style={{
+          background: useTransform(
+            [glowX, glowY],
+            ([gx, gy]) =>
+              `radial-gradient(240px circle at ${gx} ${gy}, rgba(255,255,255,0.18), transparent 70%)`,
+          ),
+        }}
+      />
+      <div className="absolute inset-0 bg-gradient-to-t from-black/85 via-black/35 to-black/0" />
+
+      <div
+        className="absolute inset-0 flex items-center justify-center opacity-25 transition-opacity duration-500 group-hover:opacity-70"
+        style={{ transformStyle: "preserve-3d" }}
+      >
+        <TechCube />
+      </div>
+
+      {project.locked ? (
+        <Lock
+          style={{ transform: "translateZ(30px)" }}
+          className="absolute top-6 right-6 size-5 text-white/50"
+        />
+      ) : (
+        <ArrowUpRight
+          style={{ transform: "translateZ(30px)" }}
+          className="absolute top-6 right-6 size-5 text-white/70 transition-all duration-300 group-hover:translate-x-0.5 group-hover:-translate-y-0.5 group-hover:text-white"
+        />
+      )}
+
+      <div
+        style={{ transform: "translateZ(30px)" }}
+        className="absolute inset-0 flex flex-col justify-end p-8"
+      >
+        <span className="mb-2 flex flex-wrap items-center gap-2 text-xs font-semibold uppercase tracking-wider text-white/70">
+          {project.category}
+          {project.badge && (
+            <span className="rounded-full bg-white/15 px-2 py-0.5 text-[10px] normal-case tracking-normal text-white">
+              {project.badge}
+            </span>
+          )}
+        </span>
+        {project.parent && (
+          <p className="mb-1 text-xs font-medium text-white/60">
+            ↳ Division of {project.parent}
+          </p>
+        )}
+        <h3 className="mb-1 text-2xl font-bold text-white">{project.name}</h3>
+        <p
+          className={cn(
+            "max-h-0 text-sm text-white/80 opacity-0 transition-all duration-300",
+            "group-hover:mt-2 group-hover:max-h-12 group-hover:opacity-100",
+          )}
+        >
+          {project.desc}
+        </p>
+      </div>
+    </motion.div>
+  );
+
   return (
     <motion.div
       layout
@@ -64,61 +143,17 @@ function ProjectCard({ project }: { project: Project }) {
       transition={{ duration: 0.4 }}
       className="[perspective:1200px]"
     >
-      <motion.div
-        ref={ref}
-        onMouseMove={handleMouseMove}
-        onMouseLeave={handleMouseLeave}
-        style={{ rotateX, rotateY, transformStyle: "preserve-3d" }}
-        className="interactive group relative aspect-[4/3] overflow-hidden rounded-2xl border border-white/10"
-      >
-        <div
-          className={cn(
-            "absolute inset-0 bg-gradient-to-br opacity-90 transition-transform duration-700 group-hover:scale-105",
-            project.gradient,
-          )}
-        />
-        <motion.div
-          className="pointer-events-none absolute inset-0 opacity-0 transition-opacity duration-300 group-hover:opacity-100"
-          style={{
-            background: useTransform(
-              [glowX, glowY],
-              ([gx, gy]) =>
-                `radial-gradient(240px circle at ${gx} ${gy}, rgba(255,255,255,0.18), transparent 70%)`,
-            ),
-          }}
-        />
-        <div className="absolute inset-0 bg-gradient-to-t from-black/85 via-black/35 to-black/0" />
-
-        <div
-          className="absolute inset-0 flex items-center justify-center opacity-25 transition-opacity duration-500 group-hover:opacity-70"
-          style={{ transformStyle: "preserve-3d" }}
-        >
-          <TechCube />
-        </div>
-
-        <ArrowUpRight
-          style={{ transform: "translateZ(30px)" }}
-          className="absolute top-6 right-6 size-5 text-white/70 transition-all duration-300 group-hover:translate-x-0.5 group-hover:-translate-y-0.5 group-hover:text-white"
-        />
-
-        <div
-          style={{ transform: "translateZ(30px)" }}
-          className="absolute inset-0 flex flex-col justify-end p-8"
-        >
-          <span className="mb-2 text-xs font-semibold uppercase tracking-wider text-white/70">
-            {project.category}
-          </span>
-          <h3 className="mb-1 text-2xl font-bold text-white">{project.name}</h3>
-          <p
-            className={cn(
-              "max-h-0 text-sm text-white/80 opacity-0 transition-all duration-300",
-              "group-hover:mt-2 group-hover:max-h-12 group-hover:opacity-100",
-            )}
-          >
-            {project.desc}
-          </p>
-        </div>
-      </motion.div>
+      {project.locked ? (
+        card
+      ) : project.url ? (
+        <a href={project.url} target="_blank" rel="noopener noreferrer" className="block">
+          {card}
+        </a>
+      ) : (
+        <Link href={`/work/${project.slug}`} className="block">
+          {card}
+        </Link>
+      )}
     </motion.div>
   );
 }

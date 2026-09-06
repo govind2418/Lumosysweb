@@ -116,7 +116,18 @@ export default async function ProjectPage({
         </Reveal>
 
         <Reveal delay={0.22}>
-          <div className="mt-14">
+          <div className="mt-14 flex flex-wrap gap-4">
+            {project.url && (
+              <Button
+                render={<a href={project.url} target="_blank" rel="noopener noreferrer" />}
+                size="lg"
+                variant="outline"
+                className="group h-11 px-6 text-base"
+              >
+                Visit live site
+                <ArrowUpRight className="transition-transform group-hover:translate-x-0.5 group-hover:-translate-y-0.5" />
+              </Button>
+            )}
             <Button render={<Link href="/contact" />} size="lg" className="group h-11 px-6 text-base">
               Start a similar project
               <ArrowUpRight className="transition-transform group-hover:translate-x-0.5 group-hover:-translate-y-0.5" />

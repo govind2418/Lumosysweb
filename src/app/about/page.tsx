@@ -4,7 +4,7 @@ import { PageHeader } from "@/components/sections/page-header";
 import { CTA } from "@/components/sections/cta";
 import { Stats } from "@/components/sections/stats";
 import { Reveal, RevealGroup, RevealItem } from "@/components/animations/reveal";
-import { Avatar, AvatarFallback } from "@/components/ui/avatar";
+import { Avatar, AvatarFallback, AvatarImage } from "@/components/ui/avatar";
 import { team, values } from "@/data/team";
 
 export const metadata: Metadata = {
@@ -74,7 +74,10 @@ export default function AboutPage() {
           {team.map((member) => (
             <RevealItem key={member.name}>
               <div className="flex items-start gap-4">
-                <Avatar className="size-12">
+                <Avatar className="size-14">
+                  {member.image && (
+                    <AvatarImage src={member.image} alt={member.name} />
+                  )}
                   <AvatarFallback className="text-sm">
                     {member.initials}
                   </AvatarFallback>
